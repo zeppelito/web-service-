@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="MeuServico"
+             targetNamespace="http://www.meuservico.com.br"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://www.meuservico.com.br">
+ 
+  <message name="SolicitarSaudacaoRequest">
+    <part name="nome" type="string"/>
+  </message>
+ 
+  <message name="SolicitarSaudacaoResponse">
+    <part name="saudacao" type="string"/>
+  </message>
+ 
+  <portType name="MeuServicoPortType">
+    <operation name="SolicitarSaudacao">
+      <input message="tns:SolicitarSaudacaoRequest"/>
+      <output message="tns:SolicitarSaudacaoResponse"/>
+    </operation>
+  </portType>
+ 
+  <binding name="MeuServicoBinding" type="tns:MeuServicoPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="SolicitarSaudacao">
+      <soap:operation soapAction="http://www.meuservico.com.br/SolicitarSaudacao"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+ 
+  <service name="MeuServico">
+    <port name="MeuServicoPort" binding="tns:MeuServicoBinding">
+      <soap:address location="http://www.meuservico.com.br"/>
+    </port>
+  </service>
+ 
+</definitions>
