@@ -1,0 +1,29 @@
+Suponha que temos uma API RESTful para gerenciar o estoque de uma livraria. Cada recurso livro tem informações como nome, autor e ISBN. As quatro operações CRUD (Create, Read, Update, Delete) para manipular os recursos livro e suas rotas correspondentes podem ser definidas da seguinte forma:
+
+Criação (Create):
+Para criar um novo recurso livro, devemos enviar uma requisição HTTP POST para a rota /livros, contendo os dados do livro no corpo da requisição em formato JSON. Exemplo:
+
+POST /livros
+{
+  "nome": "O Hobbit",
+  "autor": "J. R. R. Tolkien",
+  "isbn": "9788533614214"
+}
+Leitura (Read):
+Para obter informações de um recurso livro específico, devemos enviar uma requisição HTTP GET para a rota /livros/{isbn}, onde {isbn} é o ISBN do livro desejado. Exemplo:
+
+GET /livros/9788533614214
+Atualização (Update):
+Para atualizar as informações de um recurso livro existente, devemos enviar uma requisição HTTP PUT ou PATCH para a rota /livros/{isbn}, onde {isbn} é o ISBN do livro a ser atualizado, contendo as novas informações do livro no corpo da requisição em formato JSON. Exemplo:
+
+PUT /livros/9788533614214
+{
+  "nome": "O Senhor dos Anéis: A Sociedade do Anel",
+  "autor": "J. R. R. Tolkien",
+  "isbn": "9788533614214"
+}
+Remoção (Delete):
+Para remover um recurso livro existente, devemos enviar uma requisição HTTP DELETE para a rota /livros/{isbn}, onde {isbn} é o ISBN do livro a ser removido. Exemplo:
+
+DELETE /livros/9788533614214
+As rotas acima permitem que a API realize as operações CRUD em recursos livro. Note que é possível adicionar outras rotas e métodos HTTP para implementar outras funcionalidades da API, como buscar livros por autor ou listar todos os livros disponíveis em estoque.
