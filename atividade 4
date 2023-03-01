@@ -1,0 +1,13 @@
+As seis regras (ou princípios) de uma API REST (Representational State Transfer) são:
+
+Arquitetura cliente-servidor: a API REST deve ser baseada na separação entre cliente e servidor, com responsabilidades bem definidas e independentes.
+
+Comunicação sem estado (stateless): cada requisição do cliente para o servidor deve conter todas as informações necessárias para que o servidor entenda e processe a requisição, sem depender de nenhum estado armazenado no servidor. Isso simplifica a implementação do servidor e aumenta a escalabilidade da API.
+
+Cache: a API REST deve suportar o uso de cache para melhorar a eficiência e a escalabilidade. As respostas do servidor devem incluir informações sobre a cacheabilidade das respostas.
+
+Interface uniforme: a API REST deve definir uma interface uniforme para as interações entre cliente e servidor. Essa interface deve incluir recursos bem definidos, identificadores únicos para esses recursos, representações dos recursos em um formato padrão (como JSON ou XML) e métodos HTTP padronizados (como GET, POST, PUT e DELETE) para manipulação dos recursos.
+
+Sistema em camadas: a API REST deve ser implementada em camadas hierárquicas, com cada camada tendo uma responsabilidade clara e bem definida. Isso permite que a API seja mais flexível e escalável, além de facilitar a implementação de políticas de segurança e de gerenciamento de carga.
+
+Code on demand (opcional): a API REST pode opcionalmente permitir que o servidor envie código executável (como JavaScript) para o cliente, para ser executado no contexto do cliente. Essa opção é raramente usada em APIs REST, mas pode ser útil em certas situações, como quando se deseja que o cliente execute uma tarefa específica de processamento de dados.
