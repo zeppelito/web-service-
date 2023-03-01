@@ -1,0 +1,77 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+// Dados iniciais
+let alunos = [
+  { id: 1, nome: 'João', idade: 18 },
+  { id: 2, nome: 'Maria', idade: 20 },
+  { id: 3, nome: 'Pedro', idade: 22 }
+];
+
+// Rotas
+// GET /alunos - retorna todos os alunos
+app.get('/alunos', (req, res) => {
+  res.status(200).json(alunos);
+});
+
+// GET /alunos/:id - retorna um aluno específico pelo id
+app.get('/alunos/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const aluno = alunos.find(aluno => aluno.id === id);
+
+  if (aluno) {
+    res.status(200).json(aluno);
+  } else {
+    res.status(404).json({ mensagem: 'Aluno não encontrado.' });
+  }
+});
+
+// POST /alunos - cria um novo aluno
+app.post('/alunos', (req, res) => {
+  const aluno = {
+    id: alunos.length + 1,
+    nome: req.body.nome,
+    idade: req.body.idade
+  };
+
+  alunos.push(aluno);
+
+  res.status(201).json(aluno);
+});
+
+// PUT /alunos/:id - atualiza um aluno existente
+app.put('/alunos/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = alunos.findIndex(aluno => aluno.id === id);
+
+  if (index !== -1) {
+    alunos[index].nome = req.body.nome;
+    alunos[index].idade = req.body.idade;
+
+    res.status(200).json(alunos[index]);
+  } else {
+    res.status(404).json({ mensagem: 'Aluno não encontrado.' });
+  }
+});
+
+// DELETE /alunos/:id - remove um aluno existente
+app.delete('/alunos/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = alunos.findIndex(aluno => aluno.id === id);
+
+  if (index !== -1) {
+    alunos.splice(index, 1);
+
+    res.status(204).send();
+  } else {
+    res.status(404).json({ mensagem: 'Aluno não encontrado.' });
+  }
+});
+
+// Inicia o servidor
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}.`);
+});
