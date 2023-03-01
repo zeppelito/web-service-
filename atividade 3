@@ -1,0 +1,32 @@
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+import javax.xml.ws.Endpoint;
+
+@WebService
+public class MyWebService {
+  
+  @WebMethod
+  public String hello() {
+    return "Hello World!";
+  }
+  
+  @WebMethod
+  public int sum(int a, int b) {
+    return a + b;
+  }
+  
+  @WebMethod
+  public double divide(double a, double b) {
+    return a / b;
+  }
+  
+  @WebMethod
+  public String echo(String message) {
+    return "You said: " + message;
+  }
+  
+  public static void main(String[] args) {
+    Endpoint.publish("http://localhost:8080/MyWebService", new MyWebService());
+  }
+  
+}
