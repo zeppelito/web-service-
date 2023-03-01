@@ -1,0 +1,39 @@
+Projeto - Como funcionam os métodos HTTP com exemplos de requisições
+
+Os métodos HTTP são utilizados para indicar a ação a ser realizada em um recurso na web. Existem 9 métodos HTTP diferentes, mas os mais comuns são:
+
+GET: usado para recuperar informações de um recurso na web.
+POST: usado para enviar dados para um servidor web e criar um novo recurso.
+PUT: usado para atualizar um recurso existente na web.
+DELETE: usado para excluir um recurso na web.
+Outros métodos HTTP incluem HEAD, OPTIONS, CONNECT, TRACE e PATCH. Cada um desses métodos possui uma finalidade específica, mas neste projeto, vamos focar nos quatro métodos mais comuns.
+
+Exemplos de requisições:
+
+GET
+A requisição GET é usada para recuperar informações de um recurso na web. Por exemplo, ao acessar uma página da web, seu navegador envia uma requisição GET para o servidor web solicitando a página. Aqui está um exemplo de requisição GET usando a ferramenta de linha de comando cURL:
+
+curl http://www.example.com/page.html
+
+POST
+A requisição POST é usada para enviar dados para um servidor web e criar um novo recurso. Por exemplo, ao preencher um formulário on-line e clicar em "Enviar", seu navegador envia uma requisição POST para o servidor web com os dados do formulário. Aqui está um exemplo de requisição POST usando a ferramenta de linha de comando cURL:
+
+curl --data "username=johndoe&password=secret" http://www.example.com/login
+
+PUT
+A requisição PUT é usada para atualizar um recurso existente na web. Por exemplo, ao editar um arquivo em um servidor de arquivos na web e clicar em "Salvar", seu navegador envia uma requisição PUT para o servidor web com o arquivo atualizado. Aqui está um exemplo de requisição PUT usando a ferramenta de linha de comando cURL:
+
+curl --upload-file example.txt http://www.example.com/files/example.txt
+
+DELETE
+A requisição DELETE é usada para excluir um recurso na web. Por exemplo, ao excluir uma postagem em um fórum on-line, seu navegador envia uma requisição DELETE para o servidor web solicitando a exclusão da postagem. Aqui está um exemplo de requisição DELETE usando a ferramenta de linha de comando cURL:
+
+curl -X DELETE http://www.example.com/posts/123
+
+Em qual momento cada um dos métodos devem ser utilizados?
+
+GET: é usado quando você quer recuperar informações de um recurso na web, como uma página HTML ou um arquivo de imagem. A requisição GET é considerada "segura" porque não modifica o estado do recurso na web.
+POST: é usado quando você quer enviar dados para um servidor web e criar um novo recurso, como enviar um e-mail ou fazer um pedido em um site de comércio eletrônico. A requisição POST não é considerada "segura" porque modifica o estado do recurso na web.
+PUT: é usado quando você quer atualizar um recurso existente na web, como um arquivo em um servidor de arquivos. A requisição PUT é considerada "idempotente", o que significa que o resultado da requisição é o mesmo, independentemente
+
+
